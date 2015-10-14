@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  resources :posts  
+  resources :posts 
+
+  get 'posts/index'
+  root 'posts#index' 
 end
+
