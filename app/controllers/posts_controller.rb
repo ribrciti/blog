@@ -20,7 +20,6 @@ class PostsController < ApplicationController
 	end
 
 	def show
-		find_post
 	end
 
 	def update
