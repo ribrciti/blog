@@ -12,7 +12,6 @@ class PostsController < ApplicationController
 
 	def create
 		@post = Post.new(post_params)	
-
 		if @post.save
 			redirect_to @post, notice: "Your article was successfully saved!"
 		else
@@ -23,18 +22,21 @@ class PostsController < ApplicationController
 	def show
 	end
 
-	def update
-			if @post.update(post_params)
-				redirect_to @post, notice: "Your udpdate was successful!"
-			else
-				render 'edit'
-			end
-		end
+	def edit		
+	end
 
-		def destroy
-			@post.destroy
-			redirect_to post_path
+	def update
+		if @post.update(post_params)
+			redirect_to @post, notice: "Your udpdate was successful!"
+		else
+			render 'edit'
 		end
+	end
+
+	def destroy
+		@post.destroy
+		redirect_to post_path
+	end
 
 	private
 

@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def new	
-	@project = Project.new	
+		@project = Project.new	
 	end
 
 	def create
@@ -17,14 +17,30 @@ class ProjectsController < ApplicationController
 		else
 			render 'new'
 		end
+	end
 
-		def show
-			
+	def show			
+	end
+
+	def edit		
+	end
+
+	def update
+		if @project.update(project_params)
+			redirect_to @project, notice: "Your udpdate was successful!"
+		else
+			render 'edit'
 		end
 	end
 
+	def destroy
+		@project.destroy
+		redirect_to projects_path
+	end
+	
 
-private
+
+	private
 
 	def find_project
 		@project = Project.friendly.find(params[:id])
