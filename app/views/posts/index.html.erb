@@ -7,13 +7,7 @@
 			<h2><%= link_to post.title, post %></h2>
 			<hr>
 		</div>
-	<% end %>
-	
+	<% end %>	
 </div>
 
-<div class="pagination">
-	<span class="previous_page disabled">Previous</span>
-	<em class="current">1</em>
-	<a href=""></a>
-	<a class="next_page">Next</a>
-</div>
+<%= will_paginate @posts %>
