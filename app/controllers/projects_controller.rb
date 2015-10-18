@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
 	before_action :find_project, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@projects = Project.all.order("created_at DESC")
+		@projects = Project.all.order("created_at DESC").paginate(page: params[:page], per_page: 2)	
 	end
 
 	def new	
@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
 		if @project.save
 			redirect_to @project, notice: "Your Project was successfully saved!"
 		else
-			render 'new'
+			render 'new', notice: "Your article was unabled to be saved!"
 		end
 	end
 
@@ -38,8 +38,6 @@ class ProjectsController < ApplicationController
 		redirect_to projects_path
 	end
 	
-
-
 	private
 
 	def find_project
