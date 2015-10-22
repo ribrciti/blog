@@ -17,11 +17,17 @@
 			<a href="#">Contact</a>
 		</nav>
 	</header>
+	
+		<% if notice %>
+	 	 	<p class="notice"><%= notice %></p>
+	 	 	<% elsif alert %>
+    	<p class="alert"><%= alert %></p>
+    <% end %> %>
 
 	<%= yield %>
-
+	
 	<footer id="main_footer">
-		<p class="copyright">&copy; 2015 Rick's</p>
+		<p class="copyright">&copy;2015 Rick's</p>
 		<nav>
 			<a href="http://msn.com" target="blank"><i class="fa fa-black-tie"></i></a>
 			<a href="http://google.com" target="blank"><i class="fa fa-sticky-note"></i></a>
